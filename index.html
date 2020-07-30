@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPM</title>
+    <script>
+        var count = 0
+        var bpm = 0
+        var initialTime = null
+
+        function click(){
+            console.log('koe')
+            count++
+            var nowtime = new Date().getTime()
+            if(initialTime == null){
+                initialTime = nowtime
+            }else{
+                bpm = 60000/((nowtime - initialTime)/count)
+            }
+            document.getElementById('value').innerHTML = `Counter: ${bpm}`
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 id="tap">Click to tap</h2>
+        <h2 id="value">Counter: </h2>
+    </div>
+    <script>
+        var btn = document.getElementById('tap')
+        btn.onclick = function(){
+            click()
+        }
+    </script>
+    
+</body>
+</html>
