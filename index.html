@@ -9,6 +9,8 @@
         var count = 0
         var bpm = 0
         var initialTime = null
+        var started = false
+        var timeInterval
 
         function click(){
             console.log('koe')
@@ -21,6 +23,10 @@
             }
             document.getElementById('value').innerHTML = `Counter: ${bpm}`
         }
+        function beep(){
+            var metronome = new Audio('bip.mp3')
+            metronome.play()
+        }
 
 
     </script>
@@ -29,11 +35,22 @@
     <div class="container">
         <h2 id="tap">Click to tap</h2>
         <h2 id="value">Counter: </h2>
+        <h2 id="play">PLAY</h2>
     </div>
     <script>
         var btn = document.getElementById('tap')
         btn.onclick = function(){
             click()
+        }
+        var btn2 = document.getElementById('play')
+        btn2.onclick = function(){
+            if(started == false){
+                timeInterval = setInterval(beep,60000/bpm)
+                started = true
+            }else{
+                clearInterval(timeInterval)
+                started = false
+            }
         }
     </script>
     
