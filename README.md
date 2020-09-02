@@ -19,4 +19,4 @@ Para testar a aplicação basta acessar o [link][live-demo-url].<br>
 
 ## :gear: Processo
 ### :zap: Motivação:
-Apaixonado por música decidi começar a produzir alguns beats e tentar recriar algumas músicas utilizando um DAW (Digital Audio Workstation). No DAW que eu utilizo não existe essa ferramenta e eu me encontrava constantemente utilizando ferramentas online ([Ex1][all8-url], [Ex2]:[bpmOnline-url]). Então decidi fazer uma minha.
+Apaixonado por música decidi começar a produzir alguns beats e tentar recriar algumas músicas utilizando um DAW (Digital Audio Workstation). No DAW que eu utilizo não existe essa ferramenta e eu me encontrava constantemente utilizando ferramentas online ([Ex1][all8-url], [Ex2][bpmOnline-url]). Então decidi fazer uma minha.
