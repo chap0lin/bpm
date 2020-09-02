@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">    <link rel="mask-icon" href="music.svg" color="#fff">
+    <title>BPM - Beat Counter / Metronome</title>
     <script>
         document.addEventListener('keydown', click)
         var count = 0
@@ -21,7 +22,7 @@
             }else{
                 bpm = 60000/((nowtime - initialTime)/count)
             }
-            document.getElementById('value').innerHTML = `Counter: ${bpm}`
+            document.getElementById('value').innerHTML = `BPM: ${bpm.toFixed(0)}`
         }
         function beep(){
             var metronome = new Audio('bip.mp3')
@@ -30,12 +31,90 @@
 
 
     </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 60%;
+        }
+        body{
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            padding: 3.2rem;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            align-self: center;
+            background: #e9581c;
+            padding-bottom: 3.2rem;
+            flex-basis: 72rem;
+            flex-grow: 0;
+            border-radius: 4.2rem;
+        }
+        .tap{
+            align-self: center;
+            width: 80%;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 3.2rem;
+            margin-top: 3.2rem;
+            transition: all 0.4s ease;
+        }
+        .tap:hover{
+            background: rgba(0,0,0,0.4);
+            cursor: pointer;
+        }
+        #tap{
+            text-align: center;
+            font-size: 4.2rem;
+        }
+        #key{
+            text-align: center;
+            font-size: 2.4rem;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .bpm-play{
+            display: flex;
+            margin-top: 3.2rem;
+            justify-content: space-between;
+        }
+        #value{
+            margin-left: 10%;
+        }
+        #play{
+            margin-right: 10%;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+        #play:hover{
+            cursor: pointer;
+            background: rgba(0,0,0,0.2);
+    
+        }
+        h2{
+            font-size: 3.2rem;
+            font-family: 'Rubik', sans-serif;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2 id="tap">Click to tap</h2>
-        <h2 id="value">Counter: </h2>
-        <h2 id="play">PLAY</h2>
+        <div class="tap">
+            <h2 id="tap">Click to tap</h2>
+            <h4 id="key">(or press any key)</h4>
+        </div>
+        <div class="bpm-play">
+            <h2 id="value">BPM: </h2>
+            <img id="play" src="play-circle.svg"/>
+        </div>
     </div>
     <script>
         var btn = document.getElementById('tap')
@@ -46,9 +125,11 @@
         btn2.onclick = function(){
             if(started == false){
                 timeInterval = setInterval(beep,60000/bpm)
+                btn2.src="pause-circle.svg"
                 started = true
             }else{
                 clearInterval(timeInterval)
+                btn2.src="play-circle.svg"
                 started = false
             }
         }
