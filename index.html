@@ -124,7 +124,7 @@
         }
         var btn2 = document.getElementById('play')
         btn2.onclick = function(){
-            if(started == false){
+            if(started == false && bpm!==0){
                 timeInterval = setInterval(beep,60000/bpm)
                 btn2.src="pause-circle.svg"
                 started = true
